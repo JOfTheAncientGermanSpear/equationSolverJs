@@ -28,8 +28,9 @@ describe('Equation', function(){
 				m: function(params) { return params.v * params.d; },
 				v: function(params) { return params.m / params.d; }
 			};
-			var density = equation.generator(fnMap);
+			var density = equation.generator(fnMap, "d = m/v");
 			assert.equal(density({m: 10, v: 2})['d'], 5);
+			assert.equal(density("describe"),"d = m/v");
 		})
 	});
 });

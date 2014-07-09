@@ -17,9 +17,10 @@ var calculateUnknownParam = function(fnMap, params){
     return res;
 };
 
-var generator = function(fnMap){
+var generator = function(fnMap, description){
 	return function(knownParams){
-		return _.extend(knownParams, calculateUnknownParam(fnMap, knownParams));
+		if(knownParams == "describe") return description;
+		else return _.extend(knownParams, calculateUnknownParam(fnMap, knownParams));
 	};
 };
 
