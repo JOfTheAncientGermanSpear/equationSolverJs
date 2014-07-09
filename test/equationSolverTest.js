@@ -30,7 +30,7 @@ describe('Equation', function(){
 			};
 			var density = equation.generator(fnMap, "d = m/v");
 			assert.equal(density({m: 10, v: 2})['d'], 5);
-			assert.equal(density("describe"),"d = m/v");
+			assert.equal(density(),"d = m/v");
 		})
 	});
 });

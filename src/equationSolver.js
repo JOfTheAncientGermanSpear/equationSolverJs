@@ -19,7 +19,7 @@ var calculateUnknownParam = function(fnMap, params){
 
 var generator = function(fnMap, description){
 	return function(knownParams){
-		if(knownParams == "describe") return description;
+		if(knownParams == undefined) return description;
 		else return _.extend(knownParams, calculateUnknownParam(fnMap, knownParams));
 	};
 };
