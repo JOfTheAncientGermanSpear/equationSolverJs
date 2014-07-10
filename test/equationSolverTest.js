@@ -51,7 +51,12 @@ describe('Equation', function(){
 			var actual = alwaysV({m: 10, d:20, v: 2});
 
 			assert.deepEqual(expected, actual);
-		})
+		});
+		it('should still return a function that outputs description when no params specified', function(){
+			var density = simpleDensity();
+			var alwaysV = equation.always("v", density);
+			assert.equal(alwaysV(),"d = m/v");
+		});
 	});
 	describe('copyInput', function() {
 		it('should copy one of the inputs to be used', function(){
@@ -63,6 +68,11 @@ describe('Equation', function(){
 			var actual = copyM1(q);
 
 			assert.deepEqual(expected, actual);
-		})
+		});
+		it('should still return a function that outputs description when no params specified', function(){
+			var density = simpleDensity();
+			var copyM1 = equation.copyInput({m1: "m"}, density);
+			assert.equal(copyM1(),"d = m/v");
+		});
 	});
 });
