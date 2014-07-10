@@ -53,4 +53,16 @@ describe('Equation', function(){
 			assert.deepEqual(expected, actual);
 		})
 	});
+	describe('copyInput', function() {
+		it('should copy one of the inputs to be used', function(){
+			var q = {m1: 6, v: 2};
+			var expected = {m: 6, m1: 6, v:2, d: 3};
+
+			var density = simpleDensity();
+			var copyM1 = equation.copyInput({m1:"m"}, density);
+			var actual = copyM1(q);
+
+			assert.deepEqual(expected, actual);
+		})
+	});
 });
