@@ -4,6 +4,27 @@
     "underscore": "*",
     "mocha": "*"
   },
-  "scripts": { "test": "mocha" },
-  "engine": "node >= 0.6.6"
+  "scripts": {
+    "test": "mocha"
+  },
+  "engine": "node >= 0.6.6",
+  "name": "equationSolverJs",
+  "description": "###How it Works",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "mocha": "~1.20.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JOfTheAncientGermanSpear/equationSolverJs.git"
+  },
+  "author": "jOfTheAncientGermanSpear",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JOfTheAncientGermanSpear/equationSolverJs/issues"
+  },
+  "homepage": "https://github.com/JOfTheAncientGermanSpear/equationSolverJs"
 }
