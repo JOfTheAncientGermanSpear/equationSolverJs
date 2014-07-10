@@ -85,4 +85,26 @@ describe('Equation', function(){
 			assert.deepEqual(actual, expected);
 		});
 	});
+	describe('combine',function(){
+		it('should combine the functional processing in a sequential manner', function(){
+			var density = simpleDensity();
+			
+			var g = 10;
+
+			var weightFnMap = {
+				w: function(q){ return q.m * g},
+				m: function(q){ return q.w / g}
+			};
+			var weight = equation.generator(weightFnMap, "w = m * 9.8");
+			
+			var calculateWeightFromDensity = equation.combine(density, weight);
+
+			var q = {v: 4, d: 2};
+
+			var expected = _.extend({m: 8, w: 80}, q);
+			var actual = calculateWeightFromDensity(q);
+
+			assert.deepEqual(expected, actual);
+		});
+	});
 });

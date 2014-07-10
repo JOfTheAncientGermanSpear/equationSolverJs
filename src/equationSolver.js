@@ -40,6 +40,11 @@ var copyInput = function(paramMap, fn){
 	}
 };
 
+var combine = function(){
+	var functions = _.toArray(arguments);
+	return _.compose.apply(null, functions.reverse());
+};
+
 var generator = function(fnMap, description){
 	return function(knownParams){
 		if(knownParams == undefined) return description;
@@ -51,5 +56,6 @@ module.exports = {
 	generator: generator,
 	always: always,
 	copyInput: copyInput,
+	combine: combine,
 	_calculateUnknownParam: calculateUnknownParam
 };
