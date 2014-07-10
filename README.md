@@ -141,3 +141,9 @@ Sometimes you want to solve the equation for a particular parameter, even if the
 
 ###Underline
 Methods with underlines in the beginning of the name, such as `_calculateUnknownParam`, are used internally. They are exposed for testing.
+
+##References
+Library heavily influenced by:
+
+1. [Functional Programming in Javascript](http://www.amazon.com/Functional-JavaScript-Introducing-Programming-Underscore-js/dp/1449360726)
+2. [Underscore.js](http://underscorejs.org)
