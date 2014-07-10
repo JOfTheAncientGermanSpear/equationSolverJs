@@ -9,7 +9,7 @@
   },
   "engine": "node >= 0.6.6",
   "name": "equationSolver",
-  "description": "###How it Works",
+  "description": "Solve for missing parms in eqns",
   "main": "src/equationSolverJs.js",
   "directories": {
     "test": "test"
