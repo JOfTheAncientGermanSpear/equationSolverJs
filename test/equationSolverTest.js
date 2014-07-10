@@ -32,8 +32,6 @@ describe('Equation', function(){
             assert.equal(expected, result.a);
         })
     });
-
-
 	describe('equation generator', function(){
 		it('should generate density calculator that calculates missing param', function(){
 			var density = simpleDensity();
