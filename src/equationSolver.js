@@ -35,7 +35,8 @@ var copyInput = function(paramMap, fn){
 			knownParams = _.extend({}, knownParams);
 			knownParams[newParam] = knownParams[paramToCopy]; 
 		}
-		return fn(knownParams);
+		if(fn) return fn(knownParams);
+		else return knownParams;
 	}
 };
 

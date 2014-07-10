@@ -74,5 +74,14 @@ describe('Equation', function(){
 			var copyM1 = equation.copyInput({m1: "m"}, density);
 			assert.equal(copyM1(),"d = m/v");
 		});
+		it('should return a function that just copies values if no function paramater specified', function(){
+			var q = {m1: 3};
+			var expected = _.extend({m: 3}, q);
+
+			var copyM1 = equation.copyInput({m1: "m"});
+			var actual = copyM1(q);
+
+			assert.deepEqual(actual, expected);
+		});
 	});
 });
