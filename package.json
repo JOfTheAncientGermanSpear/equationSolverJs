@@ -8,14 +8,11 @@
     "test": "mocha"
   },
   "engine": "node >= 0.6.6",
-  "name": "equationSolverJs",
+  "name": "equationSolver",
   "description": "###How it Works",
-  "main": "index.js",
+  "main": "src/equationSolverJs.js",
   "directories": {
     "test": "test"
-  },
-  "devDependencies": {
-    "mocha": "~1.20.1"
   },
   "repository": {
     "type": "git",
