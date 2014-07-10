@@ -17,6 +17,16 @@ var calculateUnknownParam = function(fnMap, params){
     return res;
 };
 
+var always = function(paramToSolve, fn){
+	return function(knownParams) {
+		if(knownParams == undefined) return fn(knownParams);
+		else {
+			var knownParams = _.omit(knownParams, paramToSolve);
+			return fn(knownParams);
+		}
+	}
+};
+
 var generator = function(fnMap, description){
 	return function(knownParams){
 		if(knownParams == undefined) return description;
@@ -26,5 +36,6 @@ var generator = function(fnMap, description){
 
 module.exports = {
 	generator: generator,
+	always: always,
 	_calculateUnknownParam: calculateUnknownParam
 };
