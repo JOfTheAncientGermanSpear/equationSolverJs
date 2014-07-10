@@ -36,8 +36,11 @@ describe('Equation', function(){
 		it('should generate density calculator that calculates missing param', function(){
 			var density = simpleDensity();
 			assert.equal(density({m: 10, v: 2})['d'], 5);
+		});
+		it('should generate density calculator that returns description if there are no input params', function(){
+			var density = simpleDensity();
 			assert.equal(density(),"d = m/v");
-		})
+		});
 	});
 	describe('always', function(){
 		it('should always calculate specified param', function(){
