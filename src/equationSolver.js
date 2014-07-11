@@ -32,7 +32,7 @@ var copyInput = function(paramMap, fn){
 
 	return function(knownParams) {
 		if(! _.isEmpty(knownParams)) {
-			knownParams = _.extend({}, knownParams);
+			knownParams = _.clone(knownParams);
 			knownParams[newParam] = knownParams[paramToCopy]; 
 		}
 		if(fn) return fn(knownParams);
