@@ -126,6 +126,18 @@ What if we want to feed m1 into the m param of weight? `copyInput` to the rescue
 	solveProblem(q); //{v1:3, m2: 5, v2: 6, m1: 10, m: 10, w: 100}
 ````
 
+Finally, `copyInput` can copy several inputs as well.
+
+````
+	var q = {a: 5, b: 6};
+	var expected = _.extend({c: 5, d: 6}, q);
+
+	var copyAbToCd = equation.copyInput({a:"c",b:"d"});
+	var actual = copyAbToCd(q);
+
+	assert.deepEqual(actual, expected);
+````
+
 ###Always
 Sometimes you want to solve the equation for a particular parameter, even if the parameter is already defined.
 

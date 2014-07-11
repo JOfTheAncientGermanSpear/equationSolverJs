@@ -84,6 +84,26 @@ describe('Equation', function(){
 
 			assert.deepEqual(actual, expected);
 		});
+		it('should be able to return a function that can copy several inputs', function(){
+			var q = {a: 5, b: 6};
+			var expected = _.extend({c: 5, d: 6}, q);
+
+			var copyAb = equation.copyInput({a:"c",b:"d"});
+			var actual = copyAb(q);
+
+			assert.deepEqual(actual, expected);
+		});
+	});
+	describe('_transformKeyNames', function() {
+		it('should transform an objects keys using passed in keyMap', function(){
+			var q = {a: 5, b: 6};
+			var keyMap = {a: "c", b: "d"};
+
+			var expected = {c: 5, d: 6};
+			var actual = equation._transformKeyNames(q, keyMap);
+
+			assert.deepEqual(actual, expected);
+		});
 	});
 	describe('combine',function(){
 		it('should combine the functional processing in a sequential manner', function(){

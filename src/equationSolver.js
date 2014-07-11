@@ -26,14 +26,20 @@ var always = function(paramToSolve, fn){
 	}
 };
 
+var transformKeyNames = function(source, keyMap){
+	return _.reduce(keyMap, function(acc, destKey, sourceKey){
+			acc[destKey] = source[sourceKey];
+			return acc;
+		},{});
+};
+
 var copyInput = function(paramMap, fn){
-	var paramToCopy = _.chain(paramMap).keys().first().value();
-	var newParam = paramMap[paramToCopy];
 
 	return function(knownParams) {
 		if(! _.isEmpty(knownParams)) {
-			knownParams = _.clone(knownParams);
-			knownParams[newParam] = knownParams[paramToCopy]; 
+			var copiedParams = _.pick(knownParams, _.keys(paramMap));
+			var newParams = transformKeyNames(copiedParams, paramMap);
+			knownParams = _.extend(newParams, knownParams);
 		}
 		if(fn) return fn(knownParams);
 		else return knownParams;
@@ -57,5 +63,6 @@ module.exports = {
 	always: always,
 	copyInput: copyInput,
 	combine: combine,
-	_calculateUnknownParam: calculateUnknownParam
+	_calculateUnknownParam: calculateUnknownParam,
+	_transformKeyNames: transformKeyNames
 };
